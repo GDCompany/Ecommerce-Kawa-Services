@@ -131,5 +131,11 @@
         fillColor: "rgba(255, 165, 52, .14)",
     });
     </script>
+    @if(session('success'))
+    <script>
+        swal("Succès", "{{ session('success') }}", "success");
+    </script>
+    @endif
+
 </body>
 </html>

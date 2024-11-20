@@ -36,7 +36,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>#0</th>
                             <th>Nom</th>
                             <th>Actions</th>
                         </tr>
@@ -44,19 +44,48 @@
                     <tbody>
                 @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $category->id }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning">Modifier</a>
-                            <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display: inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
+                            <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning"> <i class="fa fa-edit"></i></a>
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger">
+                                  <i class="fa fa-times"></i>
+                              </button>
+                          </form> 
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+<!-- Modal de Confirmation de Suppression -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de Suppression</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <form id="deleteForm" method="POST" action="" style="display: inline;">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Supprimer</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+
 @endsection

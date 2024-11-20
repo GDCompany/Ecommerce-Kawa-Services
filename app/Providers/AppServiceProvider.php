@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
+// use App\Models\Product;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
        // $categories = \App\Models\Category::all();
         $categories = Category::all();
         view()->share('categories', $categories);
+
+        // $products = Product::all();
+        // view()->share('products', $products);
         
     }
     

@@ -46,8 +46,8 @@ class ProductController extends Controller
         }
 
         $product->save();
-
-        return redirect()->route('products.index')->with('success', 'Produit ajouté avec succès!');
+        session()->flash('success', 'Produit ajouté avec succès !');
+        return redirect()->route('products.index');
     }
 
     public function show(Product $product)
@@ -86,13 +86,15 @@ class ProductController extends Controller
         }
 
         $product->save();
-
-        return redirect()->route('products.index')->with('success', 'Produit mis à jour avec succès!');
+        session()->flash('success', 'Produit mis à jour avec succès !');
+        return redirect()->route('products.index');
     }
-
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::findOrFail($id);
+        session()->flash('success', 'Produit supprimé avec succès !');
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Produit supprimé avec succès!');
+        return redirect()->route('products.index');
     }
+
 }

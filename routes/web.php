@@ -40,7 +40,6 @@ use App\Http\Controllers\Admin\{
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
@@ -87,8 +86,9 @@ Route::post('products', [ProductController::class, 'store'])->name('products.sto
 Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::delete('/produits/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 // ajout cart
 Route::delete('/cart/{rowId}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');

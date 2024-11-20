@@ -106,6 +106,7 @@
                                         <div class="product-widget">
                                             <div class="product-img">
                                                 {{-- <img src="{{ asset($item->model->image) }}" alt="{{ $item->name }}"> --}}
+                                                {{-- <img src="{{ $product->image }}" alt="{{ $product->name }}" style="width: 50px; height: auto;"> --}}
                                             </div>
                                             <div class="product-body">
                                                 <h3 class="product-name"><a href="#">{{ $item->name }}</a></h3>
@@ -125,8 +126,8 @@
                                         <h5>SUBTOTAL: ${{ Cart::subtotal() }}</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="{{ route('cart')}}">View Cart</a>
+                                        <a href="{{ route('checkout')}}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 @else
                                     <p>Your cart is empty.</p>
