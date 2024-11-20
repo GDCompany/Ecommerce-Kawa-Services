@@ -91,3 +91,4 @@ Route::delete('products/{product}', [ProductController::class, 'destroy'])->name
 
 // ajout cart
 Route::delete('/cart/{rowId}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
