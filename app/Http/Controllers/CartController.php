@@ -61,8 +61,10 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $rowId)
     {
-        //
+        Cart::remove($rowId);
+        return redirect()->route('index')->with('success', 'Produit retiré du panier.');
     }
+    
 }

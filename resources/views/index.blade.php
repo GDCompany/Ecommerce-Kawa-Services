@@ -310,8 +310,16 @@
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Add to cart</button>
-												</div>
+													<form action="{{ route('cart.store') }}" method="POST">
+														@csrf
+														<input type="hidden" name="id" value="{{ $product->id }}">
+														<input type="hidden" name="title" value="{{ $product->name }}">
+														<input type="hidden" name="price" value="{{ $product->price }}">
+														<button type="submit" class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Add to cart
+														</button>
+													</form>
+												</div>												
 											</div>
 											<!-- /product -->
 											@endforeach

@@ -98,44 +98,42 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
-                                <div class="qty">3</div>
+                                <div class="qty">{{ Cart::count() }}</div>
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            
-                                            <img src="{{ asset('frontend/img/product01.png')}}" alt="">
+                                    @foreach (Cart::content() as $item)
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                {{-- <img src="{{ asset($item->model->image) }}" alt="{{ $item->name }}"> --}}
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">{{ $item->name }}</a></h3>
+                                                <h4 class="product-price"><span class="qty">{{ $item->qty }}x</span>${{ $item->price }}</h4>
+                                            </div>
+                                            <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="delete"><i class="fa fa-close"></i></button>
+                                            </form>                                            
                                         </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                    @endforeach
+                                </div>
+                                @if (Cart::count() > 0)
+                                    <div class="cart-summary">
+                                        <small>{{ Cart::count() }} Item(s) selected</small>
+                                        <h5>SUBTOTAL: ${{ Cart::subtotal() }}</h5>
                                     </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            {{-- <img src="./img/product02.png" alt=""> --}}
-                                            <img src="{{ asset('frontend/img/product02.png')}}" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                    <div class="cart-btns">
+                                        <a href="#">View Cart</a>
+                                        <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
-                                </div>
-                                <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
+                                @else
+                                    <p>Your cart is empty.</p>
+                                @endif
                             </div>
                         </div>
+                        
                         <!-- /Cart -->
 
                         <!-- Menu Toogle -->
