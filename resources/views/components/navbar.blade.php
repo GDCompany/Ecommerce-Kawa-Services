@@ -5,9 +5,9 @@
 <div id="top-header">
     <div class="container">
         <ul class="header-links pull-left">
-            <li><a href="{{ route('index') }}"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-            <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-            <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+            <li><a href="{{ route('index') }}"><i class="fa fa-phone"></i> +229 53002565</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i> germaindandji03@gmail.com</a></li>
+            <li><a href="#"><i class="fa fa-map-marker"></i> 12345 Cotonou</a></li>
         </ul>
         <ul class="header-links pull-right">
             <!-- Dropdown for My Account -->
@@ -31,7 +31,7 @@
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button type="submit" 
-                                    class="block px-4 py-4 text-lg font-bold hover:bg-gray-100 w-full text-left">
+                                    class="block px-4 py-4 text-lg font-bold hover:bg-gray-100 w-full text-left" id="lagoutAcountBtn">
                                 Se déconnecter
                             </button>
                         </form>
@@ -53,30 +53,29 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
-                            <img src="{{ asset('frontend/img/logo.png')}}" alt="">
-                            
+                        <a href="{{ route('index')}}" class="logo">
+                            <img src="{{ asset('frontend/img/logo.png')}}" alt="">   
                         </a>
                     </div>
                 </div>
                 <!-- /LOGO -->
 
-            <!-- SEARCH BAR -->
-            <div class="col-md-6">
-                <div class="header-search">
-                    <form>
-                        <select class="input-select" name="category_id">
-                            <option value="0">All Categories</option>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                        <input class="input" placeholder="Search here">
-                        <button class="search-btn">Search</button>
-                    </form>
+                <!-- SEARCH BAR -->
+                <div class="col-md-6">
+                    <div class="header-search">
+                        <form>
+                            <select class="input-select" name="category_id">
+                                <option value="0">All Categories</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <input class="input" placeholder="Search here ...">
+                            <button type="submit" class="search-btn">Search</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <!-- /SEARCH BAR -->
+                <!-- /SEARCH BAR -->
 
 
 
@@ -155,54 +154,57 @@
     </div>
     <!-- /MAIN HEADER -->
     </header>
-<!-- /HEADER -->
+    <!-- /HEADER -->
 
-<!-- NAVIGATION -->
-    <nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="{{ route('index')}}">Home</a></li>
-                <li><a href="{{ route('shop')}}">Shop</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="{{ route('login')}}">Se connecter</a></li>
-            </ul>
-            <!-- /NAV -->
+    <!-- NAVIGATION -->
+        <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="{{ route('index')}}">Home</a></li>
+                    <li><a href="{{ route('shop')}}">Shop</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Cameras</a></li>
+                    <li><a href="{{ route('login')}}">Se connecter</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
         </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
+        <!-- /container -->
+        </nav>
+    <!-- /NAVIGATION -->
     </nav>
-<!-- /NAVIGATION -->
-</nav>
 
-<!-- JavaScript -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const accountBtn = document.getElementById('account-btn');
-        const accountMenu = document.getElementById('account-menu');
 
-        accountBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            accountMenu.classList.toggle('hidden'); // Toggle visibility of the menu
+    {{-- modal pour le login --}}
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accountBtn = document.getElementById('account-btn');
+            const accountMenu = document.getElementById('account-menu');
+
+            accountBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                accountMenu.classList.toggle('hidden'); // Toggle visibility of the menu
+            });
+
+            // Optional: Close menu if clicking outside
+            document.addEventListener('click', function (e) {
+                if (!accountBtn.contains(e.target) && !accountMenu.contains(e.target)) {
+                    accountMenu.classList.add('hidden');
+                }
+            });
         });
+    </script>
 
-        // Optional: Close menu if clicking outside
-        document.addEventListener('click', function (e) {
-            if (!accountBtn.contains(e.target) && !accountMenu.contains(e.target)) {
-                accountMenu.classList.add('hidden');
-            }
-        });
-    });
-</script>
-
-<style>
+    <style>
     #account-menu {
         z-index: 50;
     }

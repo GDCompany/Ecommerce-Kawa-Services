@@ -58,13 +58,13 @@
                                             <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning" title="Modifier">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
+                                            <form id="delete-form-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">
+                                                <button type="button" class="btn btn-danger" onclick="showDeleteModal('{{ route('products.destroy', $product->id) }}')">
                                                     <i class="fa fa-times"></i>
                                                 </button>
-                                            </form>                                            
+                                            </form>                                           
                                         </td>
                                     </tr>
                                 @endforeach
@@ -78,26 +78,32 @@
 </div>
 <!-- Modal de Confirmation de Suppression -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de Suppression</h5>
-              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-              <form id="deleteForm" method="POST" action="" style="display: inline;">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="btn btn-danger">Supprimer</button>
-              </form>
-          </div>
-      </div>
-  </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de Suppression</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Êtes-vous sûr de vouloir supprimer cet élément ? Cette action est irréversible.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <form id="deleteForm" method="POST" action="" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    function showDeleteModal(actionUrl) {
+        document.getElementById('deleteForm').action = actionUrl;
+        $('#confirmDeleteModal').modal('show');
+    }
+</script>
 @endsection

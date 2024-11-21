@@ -24,6 +24,9 @@
 
     <!-- Custom stylesheet -->
     <link type="text/css" rel="stylesheet" href="{{ asset('frontend/css/style.css') }}"/>
+   
+    {{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> --}}
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,6 +67,7 @@
 
     @include('components.footer')
 
+
     <!-- jQuery Plugins -->
     <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
@@ -71,6 +75,20 @@
     <script src="{{ asset('frontend/js/nouislider.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2@11.js')}}"></script>
+    {{-- <script>
+        $(document).ready(function()
+        {
 
+            Swal.fire({
+                template: "#my-template"
+            });
+        });
+    </script> --}}
+        @if(session('success'))
+        <script>
+            swal("Succès", "{{ session('success') }}", "success");
+        </script>
+        @endif
 </body>
 </html>

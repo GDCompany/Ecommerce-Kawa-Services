@@ -62,4 +62,82 @@
         </div>
     </div>
 </div>
+
+{{-- <div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <!-- Réinitialisation du mot de passe -->
+            <div class="col-md-5 order-details">
+                <div class="section-title text-center">
+                    <h3 class="title">Réinitialiser le Mot de Passe</h3>
+                </div>
+                <form action="{{ route('password.email') }}" method="POST">
+                    @csrf <!-- Protection CSRF -->
+                    
+                    <!-- Champ Email -->
+                    <div class="mb-4">
+                        <label for="email" class="form-label fs-4">Adresse Email</label>
+                        <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror"
+                            value="{{ old('email') }}" required autofocus>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <!-- Bouton Envoyer le lien de réinitialisation -->
+                    <div class="d-grid mb-4">
+                        <button type="submit" class="primary-btn order-submit btn-lg">Envoyer le lien de réinitialisation</button>
+                    </div>
+
+                    <div class="text-center mt-2">
+                        <span>Vous vous souvenez de votre mot de passe ?</span>
+                        <a href="{{ route('login') }}" class="text-decoration-none custom-hover-red-500">Connectez-vous ici</a>
+                    </div>
+                </form>
+            </div>
+            <!-- /Réinitialisation du mot de passe -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+
+<style>
+    .text-decoration-none {
+    text-decoration: none; /* Pas de soulignement pour les liens */
+}
+
+.text-decoration-none:hover {
+    text-decoration: underline; /* Soulignement au survol */
+}
+
+.primary-btn {
+    width: 100%; /* Le bouton occupe toute la largeur */
+    padding: 12px; /* Espacement intérieur */
+    font-size: 1.1rem; /* Taille de la police du bouton */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.form-control {
+    height: 55px; /* Hauteur des champs d'entrée */
+    font-size: 1.1rem; /* Taille de la police des champs d'entrée */
+    padding: 10px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Couleur de la bordure au focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre légère au focus */
+}
+
+.invalid-feedback {
+    font-size: 0.9rem; /* Taille de police des messages d'erreur */
+    color: #e74c3c; /* Couleur rouge pour les erreurs */
+}
+</style> --}}
 @endsection

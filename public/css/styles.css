@@ -1,0 +1,91 @@
+/* Global styling */
+body {
+   
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the login form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Style for the login box */
+.login-box {
+    
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Title styling */
+.login-box h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #f44336; /* Rouge vif pour le titre */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #f44336; /* Rouge pour les labels */
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-group .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 5px;
+ /* Fond sombre pour les champs */
+    color: #fff; /* Texte blanc */
+    transition: border-color 0.3s;
+}
+
+.input-group .form-control:focus {
+    border-color: #f44336; /* Bordure rouge au focus */
+    outline: none;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #f44336; /* Fond rouge pour le bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #d32f2f; /* Rouge plus foncé au survol */
+}
+
+/* Forgot password link */
+.forgot-password {
+    text-decoration: none;
+    color: #f44336; /* Rouge pour le lien */
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #d32f2f; /* Rouge plus foncé au survol */
+}

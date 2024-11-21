@@ -48,13 +48,13 @@
                         <td>{{ $category->name }}</td>
                         <td>
                             <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning"> <i class="fa fa-edit"></i></a>
-                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger">
-                                  <i class="fa fa-times"></i>
-                              </button>
-                          </form> 
+                          <form id="delete-form-{{ $category->id }}" action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-danger" onclick="showDeleteModal('{{ route('categories.destroy', $category->id) }}')">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </form>  
                         </td>
                     </tr>
                 @endforeach
@@ -86,6 +86,10 @@
       </div>
   </div>
 </div>
-
-
+<script>
+  function showDeleteModal(actionUrl) {
+      document.getElementById('deleteForm').action = actionUrl;
+      $('#confirmDeleteModal').modal('show');
+  }
+</script>
 @endsection
