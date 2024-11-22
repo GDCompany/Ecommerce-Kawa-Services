@@ -30,12 +30,13 @@
             <!-- Order Details -->
             <div class="col-md-5 order-details">
                 <div class="section-title text-center">
-                    <h3 class="title">Login</h3>
+                    <h3 class="title">Se connecter</h3>
                 </div>
-                <form action="" method="POST">
+                <form action="{{ route('login')}}" method="POST">
+                    @csrf
                     <!-- Champ Email -->
                     <div class="mb-4">
-                        <label for="email" class="form-label fs-4">Address Email</label>
+                        <label for="email" class="form-label fs-4">Adresse Email</label>
                         <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror"
                             value="{{ old('email') }}" required autofocus>
                         @error('email')
@@ -45,7 +46,7 @@
 
                     <!-- Champ Password -->
                     <div class="mb-4">
-                        <label for="password" class="form-label fs-4">Password</label>
+                        <label for="password" class="form-label fs-4">Mot de Passe</label>
                         <input type="password" id="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" 
                             required>
                         @error('password')
@@ -57,7 +58,7 @@
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember">Remember Me</label>
+                            <label class="form-check-label" for="remember">Souviens-toi de moi</label>
                             @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}" class="text-decoration-none" style="margin-left: auto;">Forgot Your Password?</a>
                         @endif
@@ -66,14 +67,14 @@
 
                     <!-- Bouton Login -->
                     <div class="d-grid mb-4">
-                        <button type="submit" class="primary-btn order-submit btn-lg">Login</button>
+                        <button type="submit" class="primary-btn order-submit btn-lg">Se connecter</button>
                     </div>
 
                     <!-- Lien Register sous le bouton Login -->
                     @if (Route::has('register'))
                         <div class="text-center mt-2">
-                            <span>Don't have an account?</span>
-                            <a href="{{ route('register') }}" class="text-decoration-none custom-hover-red-500">Register here</a>
+                            <span>Vous n'avez pas de compte ?</span>
+                            <a href="{{ route('register') }}" class="text-decoration-none custom-hover-red-500">Inscrivez-vous ic</a>
                         </div>
                     @endif
                 </form>
@@ -85,41 +86,5 @@
     <!-- /container -->
 </div>
 <!-- /SECTION -->
-
-        <style>
-/* Ajoutez ceci à votre fichier CSS */
-.text-decoration-none {
-    text-decoration: none; /* Pas de soulignement pour les liens */
-}
-
-.primary-btn {
-    width: 100%; /* Le bouton occupe toute la largeur */
-    padding: 12px; /* Espacement intérieur */
-    font-size: 1.1rem; /* Taille de la police du bouton */
-    border-radius: 5px; /* Coins arrondis */
-}
-
-.form-control {
-    height: 55px; /* Hauteur des champs d'entrée */
-    font-size: 2%; /* Taille de la police des champs d'entrée */
-    padding: 10px; /* Espacement intérieur */
-    border-radius: 5px; /* Coins arrondis */
-}
-
-/* Styles pour les champs d'entrée au focus */
-.form-control:focus {
-    border-color: #007bff; /* Couleur de la bordure au focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre légère au focus */
-}
-
-.form-check {
-    display: flex; /* Utiliser flex pour aligner les éléments */
-    align-items: center; /* Alignement vertical */
-}
-
-.form-check .form-check-input {
-    margin-right: 10px; /* Espacement à droite de la case à cocher */
-}
-        </style>
 
 @endsection

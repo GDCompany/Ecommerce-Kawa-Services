@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;  // Ajoutez cette ligne pour importer la classe Request
+use Illuminate\Http\Request;  
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -31,6 +31,7 @@ class LoginController extends Controller
         if ($user->role == 'admin') {
             return redirect()->route('dashboard');
         }
+        session()->flash('success', "Bienvenue, {$user->name} ! Vous êtes maintenant connecté.");
         return redirect()->route('index');
     }
 

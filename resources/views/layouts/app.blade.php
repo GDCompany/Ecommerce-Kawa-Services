@@ -25,7 +25,7 @@
     <!-- Custom stylesheet -->
     <link type="text/css" rel="stylesheet" href="{{ asset('frontend/css/style.css') }}"/>
    
-    {{-- <link href="{{ asset('css/styles.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -76,19 +76,16 @@
     <script src="{{ asset('frontend/js/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="{{ asset('js/sweetalert2@11.js')}}"></script>
-    {{-- <script>
-        $(document).ready(function()
-        {
-
-            Swal.fire({
-                template: "#my-template"
-            });
-        });
-    </script> --}}
         @if(session('success'))
         <script>
             swal("Succès", "{{ session('success') }}", "success");
         </script>
         @endif
+        @if (session('success'))
+        <div class="bg-green-100 text-green-800 p-4 rounded-lg mb-4">
+            {{ session('success') }}
+        </div>
+        @endif
+
 </body>
 </html>

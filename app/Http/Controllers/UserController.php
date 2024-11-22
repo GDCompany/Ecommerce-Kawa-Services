@@ -30,7 +30,8 @@ class UserController extends Controller
         ]);
 
         // Redirection après création
-        return redirect()->route('AllUser')->with('success', 'Administrateur créé avec succès.');
+        session()->flash('success', "Bienvenue, ! Vous êtes maintenant connecté.");
+        return redirect()->route('AllUser');
     }
 
     public function edit($id)

@@ -57,160 +57,85 @@
 		</div>
 		<!-- /SECTION -->
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
+			<!-- SECTION -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
 
-					<!-- section title -->
-					<div class="col-md-12">
-						<div class="section-title">
-							<h3 class="title">New Products</h3>
-						</div>
-					</div>
-					<!-- /section title -->
-
-					<!-- Products tab & slick -->
-					<div class="col-md-12">
-						<div class="row">
-							<div class="products-tabs">
-								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
-									<div class="products-slick" data-nav="#slick-nav-1">
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="{{ asset('frontend/img/product01.png')}}" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="{{ asset('frontend/img/product02.png')}}" alt="">
-												<div class="product-label">
-													<span class="new">NEW</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star-o"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product03.png" alt="">
-												<img src="{{ asset('frontend/img/product03.png')}}" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-												</div>
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<div class="product-img">
-												<img src="./img/product04.png" alt="">
-												<img src="{{ asset('frontend/img/product04.png')}}" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-												<div class="product-rating">
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-													<i class="fa fa-star"></i>
-												</div>
-												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-												</div>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											</div>
-										</div>
-										<!-- /product -->
-									</div>
-									<div id="slick-nav-1" class="products-slick-nav"></div>
-								</div>
-								<!-- /tab -->
+						<!-- section title -->
+						<div class="col-md-12">
+							<div class="section-title">
+								<h3 class="title">New Product</h3>
 							</div>
 						</div>
+						<!-- /section title -->
+
+						<!-- Products tab & slick -->
+						<div class="col-md-12">
+							<div class="row">
+								<div class="products-tabs">
+									<!-- tab -->
+									<div id="tab1" class="tab-pane active">
+										<div class="products-slick" data-nav="#slick-nav-1">
+											@foreach($products as $product)
+											<!-- product -->
+											<div class="product">
+												<div class="product-img" style="width: 100%; height: 200px; overflow: hidden;">
+													<img src="{{ asset($product->image) }}" alt="{{ $product->name }}" style="width: 100%; height: 100%; object-fit: contain;">
+													<div class="product-label">
+														@if($product->sale) <span class="sale">-{{ $product->sale }}%</span> @endif
+														@if($product->is_new) <span class="new">NEW</span> @endif
+													</div>
+												</div>
+												<div class="product-body">
+													<p class="product-category">{{ $product->category->name ?? 'Aucune catégorie' }}</p>
+													<h3 class="product-name"><a href="#">{{ $product->name }}</a></h3>
+													<h4 class="product-price">${{ number_format($product->price, 2) }}
+														@if($product->old_price)
+														<del class="product-old-price">${{ number_format($product->old_price, 2) }}</del>
+														@endif
+													</h4>
+													<div class="product-rating">
+														@for($i = 0; $i < 5; $i++)
+															<i class="fa fa-star{{ $i < $product->rating ? ' checked' : '' }}"></i>
+														@endfor
+													</div>
+													<div class="product-btns">
+														<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Add to wishlist</span></button>
+														<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Add to compare</span></button>
+														<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Quick view</span></button>
+													</div>
+												</div>
+												<div class="add-to-cart">
+													<form action="{{ route('cart.store') }}" method="POST">
+														@csrf
+														<input type="hidden" name="id" value="{{ $product->id }}">
+														<input type="hidden" name="title" value="{{ $product->name }}">
+														<input type="hidden" name="price" value="{{ $product->price }}">
+														<button type="submit" class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Add to cart
+														</button>
+													</form>
+												</div>												
+											</div>
+											<!-- /product -->
+											@endforeach
+										</div>
+										<div id="slick-nav-1" class="products-slick-nav"></div>
+									</div>
+									<!-- /tab -->
+								</div>
+							</div>
+						</div>
+						<!-- Products tab & slick -->
 					</div>
-					<!-- Products tab & slick -->
+					<!-- /row -->
 				</div>
-				<!-- /row -->
+				<!-- /container -->
 			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
+			<!-- /SECTION -->
 
 		<!-- HOT DEAL SECTION -->
 		<div id="hot-deal" class="section">
@@ -337,7 +262,7 @@
 				<!-- /container -->
 			</div>
 			<!-- /SECTION -->
-        
+		
 </body>
 
 @endsection

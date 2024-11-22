@@ -10,35 +10,47 @@
             <li><a href="#"><i class="fa fa-map-marker"></i> 12345 Cotonou</a></li>
         </ul>
         <ul class="header-links pull-right">
-            <!-- Dropdown for My Account -->
-            <li class="relative">
-                <a href="#" id="account-btn" class="flex items-center">
-                    <i class="fa fa-user-o"></i> <span class="ml-2">Mon Compte</span>
-                </a>
-                <!-- Dropdown Menu -->
-                <ul id="account-menu" 
-                    class="absolute right-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg hidden">
-                    <!-- Profil en haut -->
-                    <li class="border-b">
-                        <a href="#" 
-                        class="block px-4 py-4 text-lg font-bold hover:bg-gray-100">
-                            Profil
-                        </a>
-                    </li>
-                    
-                    <!-- Séparateur entre Profil et Se déconnecter -->
-                    <li class="border-t">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" 
-                                    class="block px-4 py-4 text-lg font-bold hover:bg-gray-100 w-full text-left" id="lagoutAcountBtn">
-                                Se déconnecter
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
+            @auth
+                <!-- Dropdown for My Account -->
+                <li class="relative">
+                    <a href="#" id="account-btn" class="flex items-center">
+                        <i class="fa fa-user-o"></i>
+                        <span class="ml-2">{{ auth()->user()->name }}</span> <!-- Nom de l'utilisateur -->
+                    </a>
+                    <!-- Dropdown Menu -->
+                    <ul id="account-menu" 
+                        class="absolute right-0 mt-2 w-40 bg-white text-black shadow-lg rounded-lg hidden">
+                        <!-- Profil -->
+                        <li class="border-b">
+                            <a href="#" 
+                               class="block px-4 py-4 text-lg font-bold hover:bg-gray-100">
+                                Profil
+                            </a>
+                        </li>
+                        
+                        <!-- Déconnexion -->
+                        <li class="border-t">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" 
+                                        class="block px-4 py-4 text-lg font-bold hover:bg-gray-100 w-full text-left">
+                                    Se déconnecter
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            @else
+                <!-- Lien pour se connecter ou s'inscrire -->
+                <li>
+                    <a href="{{ route('login') }}" class="flex items-center">
+                        <i class="fa fa-user-o"></i>
+                        <span class="ml-2">Se connecter</span>
+                    </a>
+                </li>
+            @endauth
         </ul>
+        
     </div>
 </div>
 <!-- /TOP HEADER -->
@@ -170,7 +182,6 @@
                     <li><a href="#">Laptops</a></li>
                     <li><a href="#">Smartphones</a></li>
                     <li><a href="#">Cameras</a></li>
-                    <li><a href="{{ route('login')}}">Se connecter</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
